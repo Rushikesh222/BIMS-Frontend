@@ -53,7 +53,7 @@ export const NavBar=()=>{
               logoutUser()
               }} className="flex cursor-pointer align-center gap-2 px-4 ">
 
-            <span className="material-icons mt-6">exit_to_app</span>
+            <span className="material-icons mt-2">exit_to_app</span>
 
             <button
               className="w-full px-4 py-2 text-base font-semibold cursor-pointer text-left text-gray-600 font-w hover:bg-red-50 rounded-md"
