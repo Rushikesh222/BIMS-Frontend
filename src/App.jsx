@@ -6,6 +6,7 @@ import { BookListing } from './pages/BookListing'
 import { AddEditBook } from './pages/AddEditBook'
 import { useAuth } from './context/AuthContext' 
 import { ProtectedRoutes } from './components/ProtectedRoutes'
+import { BooksDetails } from './pages/BooksDetails'
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path='/books' element={<BookListing />} />
         <Route path='/books/:id' element={<AddEditBook />} />
         <Route path='/books/add' element={<AddEditBook />} />
+        <Route path='/books-details/:id' element={<BooksDetails />} />
       </Route>
 
       {/* Fallback */}

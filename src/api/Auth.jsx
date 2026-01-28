@@ -15,7 +15,7 @@ export const login = async (data) => {
 
 export const registerUser = async (userData) => {
   try {
-    const response = await authInterceptor.post("/signup", userData);
+    const response = await authInterceptor.post("auth/signup", userData);
     return response.data;
   } catch (error) {
     throw error.response && error.response.data

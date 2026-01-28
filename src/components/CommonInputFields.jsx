@@ -87,11 +87,11 @@ const CommonInputFields = ({ inputData, setValue, value, externalErrors }) => {
 
     return (
         <>
-         {inputData.map(({ name, options, label, type, errorMessage, placeholder }) => (
+         {inputData.map(({ name, options, label, type, placeholder }) => (
           <>
 
             {type==="dropdown"?
-            <div className="w-64">
+            <div className="w-`full mb-4" key={name}>
   <label
     htmlFor={name}
     className="block mb-1 text-sm font-medium text-gray-700"

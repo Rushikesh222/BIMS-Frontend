@@ -1,7 +1,9 @@
 import { useState } from "react";
 import CommonInputFields from "../components/CommonInputFields";
+import { Loader } from "../components/Loader";
 import { registerUser } from "../api/Auth";
 import swal from "sweetalert";
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
     const [formData, setFormData] = useState({
@@ -12,6 +14,7 @@ export const Register = () => {
     });
     const [formErrors, setFormErrors] = useState({});
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate()
 
     const fields = [
         { name: "name", label: "Name", type: "text", placeholder: "Your name" },
@@ -55,6 +58,7 @@ export const Register = () => {
 
         setLoading(true);
         try {
+            setLoading(true)
             const payload = {
                 name: formData.name.trim(),
                 email: formData.email.trim(),
@@ -62,9 +66,20 @@ export const Register = () => {
                 age: Number(formData.age),
             };
             const res = await registerUser(payload);
-            await swal({ title: "Registered", text: "Account created successfully.", icon: "success", timer: 1500 });
+            await swal({
+    title: "Registered",
+    text: "Account created successfully.",
+    icon: "success",
+    buttons: true,
+    timer: 1500 
+  }).then(() => {
+        navigate("/login");
+  });
+
             setFormData({ name: "", email: "", password: "", age: "" });
             setFormErrors({});
+            setLoading(false)
+
         } catch (error) {
             swal({ title: "Registration failed", text: error?.message || "Unable to register.", icon: "error" });
         } finally {
@@ -88,6 +103,7 @@ export const Register = () => {
                     </div>
                 </form>
             </div>
+             <Loader  show={loading} />
         </div>
     );
 }

@@ -47,16 +47,20 @@ export const NavBar=()=>{
 
         {/* Dropdown */}
         {open && (
-          <div className="absolute right-0 mt-3 w-44 bg-white rounded-md shadow-lg border z-50">
-            <button
-              className="w-full px-4 py-2 text-sm text-left text-red-600 hover:bg-red-50 rounded-md"
-              onClick={() => {
+          <div className="absolute  right-0 mt-3 w-44 bg-white rounded-md shadow-lg  z-50">
+            <div onClick={() => {
                 setOpen(false);
               logoutUser()
-              }}
+              }} className="flex cursor-pointer align-center gap-2 px-4 ">
+
+            <span className="material-icons mt-6">exit_to_app</span>
+
+            <button
+              className="w-full px-4 py-2 text-base font-semibold cursor-pointer text-left text-gray-600 font-w hover:bg-red-50 rounded-md"
               >
                 Logout
             </button>
+            </div>
           </div>
         )}
       </div>}

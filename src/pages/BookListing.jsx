@@ -154,11 +154,14 @@ export const BookListing = () => {
                   {/* Actions */}
                   <td className="px-6 py-4">
                     <div className="flex items-center justify-center gap-3">
-                      <button onClick={()=>navigate(`/books/${book._id}`)} className="flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-green-600 bg-green-100 rounded-md hover:bg-green-200">
+                      <button onClick={()=>navigate(`/books/${book._id}`)} className="cursor-pointer flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-green-600 bg-green-100 rounded-md hover:bg-green-200">
                         <span className="material-icons">edit</span>
                       </button>
-                      <button onClick={()=>confirmDelete(book._id)} className="flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-red-600 bg-red-100 rounded-md hover:bg-red-200">
+                      <button onClick={()=>confirmDelete(book._id)} className="cursor-pointer flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-red-600 bg-red-100 rounded-md hover:bg-red-200">
                     <span className="material-icons">delete</span>
+                      </button>
+                      <button onClick={()=>navigate(`/books-details/${book._id}`)} className="cursor-pointer flex items-center gap-1 px-3 py-1.5 text-xs font-medium text-blue-600 bg-blue-100 rounded-md hover:bg-blue-200">
+                    <span className="material-icons">visibility</span>
                       </button>
                     </div>
                   </td>
